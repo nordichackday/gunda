@@ -1,0 +1,118 @@
+<script>
+document.addEventListener("DOMContentLoaded", function(event) {
+  var bubble = document.getElementById('SpeachBubble');
+  var message = document.getElementById('message');
+  var answer = document.getElementById('Answer');
+  message.focus();
+  message.addEventListener('keyup', function(e){
+    e.preventDefault();
+    if (e.keyCode == 13) {
+      var answerIndex = 0;
+      var xhr = new XMLHttpRequest();
+      xhr.onreadystatechange = function(){
+        var xhrStatus = this;
+        if (xhrStatus.readyState === XMLHttpRequest.DONE && xhrStatus.status === 200) {
+          var obj = JSON.parse(xhrStatus.response);
+          bubble.innerHTML = obj.title;
+          answer.innerHTML = obj.answer;
+        }
+      };
+      xhr.open('POST', '/gunda');
+      xhr.setRequestHeader('Content-type', 'application/json');
+      xhr.send('{"message": "' + message.value + '", "answer": "' + answerIndex + '"}');
+    }
+  });
+  console.log(message);
+});
+</script>
+<style>
+.bot {
+  margin: 20px;
+  position: relative;;
+}
+.bot h2 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.bot input {
+  padding: 10px;
+  width: 400px;
+}
+.bubble {
+    position: relative;
+    padding: 20px 15px;
+    margin: 10px 0 10px 0;
+    border: 4px solid #000;
+    text-align: center;
+    color: #333;
+    font-size: 30px;
+    background: #fff;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+}
+.bubble:before {
+    content: "";
+    position: absolute;
+    z-index: 10;
+    bottom: -37px;
+    left: 80px;
+    width: 50px;
+    height: 30px;
+    border-style: solid;
+    border-width: 0 4px 4px 0;
+    border-color: #000;
+    background: transparent;
+    -webkit-border-bottom-right-radius: 80px 50px;
+    -moz-border-radius-bottomright: 80px 50px;
+    border-bottom-right-radius: 80px 50px;
+    display: block;
+}
+.bubble:after {
+    content: "";
+    position: absolute;
+    z-index: 10;
+    bottom: -37px;
+    left: 80px;
+    width: 20px;
+    height: 30px;
+    border-style: solid;
+    border-width: 0 4px 4px 0;
+    border-color: #000;
+    background: transparent;
+    -webkit-border-bottom-right-radius: 40px 50px;
+    -moz-border-radius-bottomright: 40px 50px;
+    border-bottom-right-radius: 40px 50px;
+    display: block;
+}
+.bot img {
+  width: 100px;
+}
+.header {
+  background-color: #000;
+}
+nav {
+  border-bottom: 1px solid #E3E3E3;
+}
+</style>
+<div class="header">
+<img src="top.png">
+<div style="margin-left: 20%; margin-right: 20%">
+</div>
+  <div style="width:50%;float:left">
+    <h1>Välkommen att kontakta SVT</h1>
+    <div class="svtTextBread-Article svtTextBread-Article_Padding svtXMargin-Bottom-30px" id="article114165">
+      <p>Varmt välkommen att kontakta oss. <br><br>Sveriges Television<br>Oxenstiernsgatan 26-34<br>105 10 Stockholm<br>&nbsp;</p> <p>E-post till medarbetare på SVT: <br>förnamn.efternamn@svt.se (exempelvis arvid.andersson@svt.se)<br><br>E-post till program på SVT: <br>program@svt.se (exempelvis agenda@svt.se)</p> <p><br>Telefonnummer 08-784 00 00 <br>Vår växel är öppen dygnet runt.</p> <p>&nbsp;</p> <p><br><strong>Tittarservice</strong><strong> sajt<br></strong>Hitta svar på dina frågor! Nya frågor, funderingar, synpunkter? Välkommen till Tittarservice!<br><a href="http://www.svt.se/tittarservice/" target="_blank">Tittarservice webbplats (öppnar i nytt fönster</a>)<br>&nbsp;</p> <p><strong>Tittarservice telefon</strong><br>Telefon 08-784 20 00<br>Öppet varje dag mellan klockan 14.00-19. 00.</p> <p><strong><br>Tittarservice post<br></strong>Tittarservice<br>Sveriges Television<br>105 10 Stockholm</p> <p>&nbsp;</p> <p><strong>Lokala nyhetsredaktioner<br></strong>Kontakta våra <a href="http://www.svt.se/omsvt/fakta/organisation/adresser-och-telefonnummer">lokala nyhetsredaktioner</a></p> <p>&nbsp;</p> <p><strong>Barnkanalen och barnprogram<br></strong><a href="http://svt.se/barn/kontakt">Barnkanalen</a><br><br><strong><br>Sport<br></strong>E-post <a href="mailto:svtsport@svt.se">svtsport@svt.se</a></p> <p>Sport-frågor som har med text-tv eller webben att göra:<br><a href="mailto:texttvsport@svt.se">texttvsport@svt.se</a><br><br><br><strong>UR<br></strong><a href="http://www.ur.se/Webbar/Om-UR/Kontakt">UR kundtjänst, öppnar nytt fönster</a><br>&nbsp;</p>
+    </div>
+  </div>
+  <div style="width:50%;float:left;">
+    <div class="bot">
+      <div id="SpeachBubble" class="bubble">
+        <div>Hur kan jag hjelpa til?</div>
+      </div>
+      <img src="gunda.png">
+      <br><input id="message" type="text" name="message" placeholder="Skriv inn din fråga!">
+    </div>
+    <div id="Answer"></div>
+  </div>
+</div>
