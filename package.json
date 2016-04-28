@@ -1,0 +1,21 @@
+{
+  "name": "gunda-web",
+  "version": "1.0.0",
+  "description": "SVT Customer service Bot backend",
+  "scripts": {
+    "start": "node bin/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nordichackday/gunda.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nordichackday/gunda/issues"
+  },
+  "homepage": "https://github.com/nordichackday/gunda#readme",
+  "dependencies": {
+    "express": "^4.13.4"
+  }
+}
