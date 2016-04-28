@@ -13,8 +13,9 @@ app.get('/policy', function(req, res){
 });
 
 app.get('/fb', function(req, res){
-  console.log('FB Request', req.query['hub.challenge']);
-  res.status(200).send(req.query['hub.challenge']);
+  if (req.query['hub.verify_token'] === '5') {
+    res.status(200).send(req.query['hub.challenge']);
+  }
 });
 
 app.listen(port, function(){
