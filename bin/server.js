@@ -59,6 +59,11 @@ app.post('/fb', function(req, res){
 	res.status(200).send();
 });
 
+app.post('/fb/buttons', function(req, res){
+  console.log(req.body, req.query);
+  res.status(200).send({});
+});
+
 function sendMessage(messageContent) {
   request({
     method: 'POST',
@@ -89,12 +94,12 @@ function createButtonedReply(){
            "buttons":[
              {
                "type":"web_url",
-               "url":"#",
+               "url":"https://gunda.herokuapp.com/fb/buttons?rate=1",
                "title":":)"
              },
              {
                "type":"web_url",
-               "url":"#",
+               "url":"https://gunda.herokuapp.com/fb/buttons?rate=0",
                "title":":("
              }
            ]
