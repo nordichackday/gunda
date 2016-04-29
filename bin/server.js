@@ -70,6 +70,8 @@ app.post('/fb', function(req, res){
         });
         res.status(200).send(response);
       });
+    } else {
+      res.send();
     }
   }
 });
