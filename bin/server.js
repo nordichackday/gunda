@@ -32,7 +32,7 @@ function onMessage(message, answerIndex, callback) {
 }
 
 app.post('/gunda', function(req, res){
-  onMessage(req.body.message, req.body.answer, function(err, response){
+  onMessage(req.body.message, getRandomInt(0, answers.length), function(err, response){
     res.status(200).send(response);
   });
 });
@@ -93,13 +93,11 @@ function createButtonedReply(){
            "subtitle":"Vi vil gärna veta hur bra du tycket våran svar va.",
            "buttons":[
              {
-               "type":"web_url",
-               "url":"https://gunda.herokuapp.com/fb/buttons?rate=1",
+               "type":"postback",
                "title":":)"
              },
              {
-               "type":"web_url",
-               "url":"https://gunda.herokuapp.com/fb/buttons?rate=0",
+               "type":"postback",
                "title":":("
              }
            ]
