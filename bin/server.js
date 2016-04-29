@@ -55,6 +55,10 @@ app.post('/fb', function(req, res){
               text: 'u suck'
             }
           }
+        }, function(error, resp, body){
+          console.log(error);
+          console.log(body);
+
         });
         res.status(200).send(response);
       });
