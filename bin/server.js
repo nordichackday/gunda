@@ -41,7 +41,6 @@ app.post('/gunda', function(req, res){
 var request = require('request');
 var events, event;
 app.post('/fb', function(req, res){
-  console.log('/fb');
   events = req.body.entry[0].messaging;
   for (var i=0; i < events.length; i++) {
     event = req.body.entry[0].messaging[i];
@@ -54,7 +53,11 @@ app.post('/fb', function(req, res){
         sendMessage(createButtonedReply());
       });
     } else if (event.postback) {
-      sendMessage({text: 'Tack for din feedback!'});
+      if (event.postback.indexOf('no') === -1) {
+        sendMessage({text: 'Tack for din feedback!'});
+      } else {
+        sendMessage({text: 'Jag er lessen, kontakt en menniska.'});
+      }
     }
   }
 	res.status(200).send();
