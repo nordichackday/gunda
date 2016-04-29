@@ -30,6 +30,7 @@ app.post('/gunda', function(req, res){
 });
 
 
+var request = require('request');
 var events, event;
 app.post('/fb', function(req, res){
   console.log('/fb');
@@ -42,6 +43,18 @@ app.post('/fb', function(req, res){
       text = event.message.text;
       onMessage(text, 0, function(err, response){
         console.log('Let us reply');
+        request({
+          method: 'POST',
+          url: 'https://graph.facebook.com/v2.6/me/messages?access_token=5'),
+          body: {
+            recipient: {
+              id: event.sender
+            },
+            message: {
+              text: 'u suck'
+            }
+          }
+        });
         res.status(200).send(response);
       });
     }
