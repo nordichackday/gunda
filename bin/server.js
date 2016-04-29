@@ -68,9 +68,7 @@ function sendMessage(messageContent) {
       recipient: {
         id: event.sender.id
       },
-      message: {
-        messageContent
-      }
+      message: messageContent
     }
   }, function(error, resp, body){
     console.log(error);
