@@ -52,14 +52,14 @@ app.post('/fb', function(req, res){
       onMessage(text, 0, function(err, response){
         console.log('Let us reply');
         sendMessage({text: answers[getRandomInt(0, answers.length)].answer});
-        sendMessage(createButtonedReply());
+        //sendMessage(createButtonedReply());
       });
     }
   }
 	res.status(200).send();
 });
 
-function sendMessage(message) {
+function sendMessage(messageContent) {
   request({
     method: 'POST',
     url: 'https://graph.facebook.com/v2.6/me/messages?access_token=EAAWSBqak7scBAGKsZBjm7vDjpl4SA03wZC4YNntw8xI4px3ckYEcK0qS2uGE5358amCkALSb5trMPoA8IujjF1i77r15IZAEZBiDhu6Wjz0mDMPegQ9oz9Ikx2YvSRBGKsVhQj7rFdhxPbAW8Y8MK5XC9SkP4PtJJ4bYnQJ3tgZDZD',
@@ -69,7 +69,7 @@ function sendMessage(message) {
         id: event.sender.id
       },
       message: {
-        message
+        messageContent
       }
     }
   }, function(error, resp, body){
@@ -80,27 +80,25 @@ function sendMessage(message) {
 
 function createButtonedReply(){
   return {
-    message: {
-      attachment: {
-        type: "template",
-        payload: {
-          template_type: 'button',
-          title: 'Va tycker du?',
-          subtitle: 'Tycker du at vi svarade bra på frågan?',
-          buttons: [{
-            type: 'postback',
-            title: 'Ja! :)',
-            payload: {
-              ok: 'yes'
-            }
-          }, {
-            type: 'postback',
-            title: 'Neij :(',
-            payload: {
-              ok: 'no'
-            }
-          }]
-        }
+    attachment: {
+      type: "template",
+      payload: {
+        template_type: 'button',
+        title: 'Va tycker du?',
+        subtitle: 'Tycker du at vi svarade bra på frågan?',
+        buttons: [{
+          type: 'postback',
+          title: 'Ja! :)',
+          payload: {
+            ok: 'yes'
+          }
+        }, {
+          type: 'postback',
+          title: 'Neij :(',
+          payload: {
+            ok: 'no'
+          }
+        }]
       }
     }
   }
