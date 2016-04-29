@@ -13,6 +13,7 @@ app.get('/policy', function(req, res){
 
 app.get('/fb', function(req, res){
   if (req.query['hub.verify_token'] === '5') {
+    console.log(req.body);
     res.status(200).send(req.query['hub.challenge']);
   }
 });
@@ -28,6 +29,7 @@ app.post('/gunda', function(req, res){
   });
 });
 
+
 var events, event;
 app.post('/fb', function(req, res){
   events = req.body.entry[0].messaging;
@@ -42,6 +44,9 @@ app.post('/fb', function(req, res){
   }
   res.sendStatus(200);
 });
+
+// For fun we add a slack bot handler too
+require('./slack');
 
 app.listen(port, function(){
   console.log('I am listening....' + port);
