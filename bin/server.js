@@ -52,7 +52,7 @@ app.post('/fb', function(req, res){
       onMessage(text, 0, function(err, response){
         console.log('Let us reply');
         sendMessage({text: answers[getRandomInt(0, answers.length)].answer});
-        //sendMessage(createButtonedReply());
+        sendMessage(createButtonedReply());
       });
     }
   }
