@@ -90,17 +90,12 @@ function createButtonedReply(){
              {
                "type":"web_url",
                "url":"https://petersapparel.parseapp.com/view_item?item_id=100",
-               "title":"Jette bra!"
+               "title":":)"
              },
              {
                "type":"web_url",
                "url":"https://petersapparel.parseapp.com/buy_item?item_id=100",
-               "title":"Dårligt"
-             },
-             {
-               "type":"postback",
-               "title":"Inte relevant",
-               "payload":"USER_DEFINED_PAYLOAD_FOR_ITEM100"
+               "title":":("
              }
            ]
          }
