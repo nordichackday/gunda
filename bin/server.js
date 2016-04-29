@@ -13,12 +13,12 @@ app.get('/policy', function(req, res){
 
 app.get('/fb', function(req, res){
   if (req.query['hub.verify_token'] === '5') {
-    console.log(req.body);
     res.status(200).send(req.query['hub.challenge']);
   }
 });
 
 var answers = require('./answers');
+
 function onMessage(message, answerIndex, callback) {
   callback(null, answers[answerIndex]);
 }
@@ -39,14 +39,14 @@ app.post('/fb', function(req, res){
     sender = event.sender.id;
     if (event.message && event.message.text) {
       text = event.message.text;
-      onMessage(text);
+      onMessage(text, function(err, response){
+        res.status(200).send(response);
+
+      });
     }
   }
-  res.sendStatus(200);
 });
 
-// For fun we add a slack bot handler too
-require('./slack');
 
 app.listen(port, function(){
   console.log('I am listening....' + port);
