@@ -18,5 +18,17 @@ module.exports = [{
     answer: 'hmm... jag ar osaker pa det, la mej kolla upp och aterkomma snarast'
   },{
     title: 'Hej',
+    answer: 'Vad kul att du gillar just det! Vi kommer att fortsatta arbetet med det under 2018'
+  },{
+    title: 'Hej',
+    answer: 'Just det du pratar om har inte langre tillganligt'
+  },{
+    title: 'whoosa!',
+    answer: 'wow! du har tagit passive agressive till en ny niva!!'
+  },{
+    title: 'Hej',
     answer: 'Ja, jag vill garna ga pa date med dej!'
-  }];
+  },{
+		title: 'Intressant!',
+		answer: 'Kul att du gillar vara program! Vi kommer att sanda fler under 2017'
+	}];
