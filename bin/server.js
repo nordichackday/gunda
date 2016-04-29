@@ -45,7 +45,6 @@ app.post('/fb', function(req, res){
   events = req.body.entry[0].messaging;
   for (var i=0; i < events.length; i++) {
     event = req.body.entry[0].messaging[i];
-    console.log('Event', event);
     sender = event.sender.id;
     if (event.message && event.message.text) {
       text = event.message.text;
@@ -54,6 +53,8 @@ app.post('/fb', function(req, res){
         sendMessage({text: answers[getRandomInt(0, answers.length)].answer});
         sendMessage(createButtonedReply());
       });
+    } else if (event.postback) {
+      sendMessage({text: 'Tack for din feedback!'});
     }
   }
 	res.status(200).send();
