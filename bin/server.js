@@ -56,7 +56,7 @@ app.post('/fb', function(req, res){
       if (event.postback.indexOf('no') === -1) {
         sendMessage({text: 'Tack for din feedback!'});
       } else {
-        sendMessage({text: 'Jag er lessen, kontakt en menniska.'});
+        sendMessage({text: 'Jag er lessen, jag har skickat et meddelande til en människa. Vi hör av oss, puss!'});
       }
     }
   }
