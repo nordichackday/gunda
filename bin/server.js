@@ -48,7 +48,7 @@ app.post('/fb', function(req, res){
         console.log('Let us reply');
         request({
           method: 'POST',
-          url: 'https://graph.facebook.com/v2.6/me/messages?access_token=5',
+          url: 'https://graph.facebook.com/v2.6/me/messages?access_token=EAAWSBqak7scBAGKsZBjm7vDjpl4SA03wZC4YNntw8xI4px3ckYEcK0qS2uGE5358amCkALSb5trMPoA8IujjF1i77r15IZAEZBiDhu6Wjz0mDMPegQ9oz9Ikx2YvSRBGKsVhQj7rFdhxPbAW8Y8MK5XC9SkP4PtJJ4bYnQJ3tgZDZD',
           json: true,
           body: {
             recipient: {
