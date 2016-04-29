@@ -85,7 +85,6 @@ function createButtonedReply(){
        "elements":[
          {
            "title":"Vad tycket du om våran svar?",
-           "image_url":"http://petersapparel.parseapp.com/img/item100-thumb.png",
            "subtitle":"Vi vil gärna veta hur bra du tycket våran svar va.",
            "buttons":[
              {
