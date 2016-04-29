@@ -94,16 +94,12 @@ function createButtonedReply(){
            "buttons":[
              {
                "type":"postback",
-               "payload": {
-                 "rate": "yes"
-               },
+               "payload": "yes",
                "title":":)"
              },
              {
                "type":"postback",
-               "payload": {
-                 "rate": "no"
-               },
+               "payload": "no",
                "title":":("
              }
            ]
