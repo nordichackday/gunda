@@ -40,7 +40,7 @@ app.post('/fb', function(req, res){
     sender = event.sender.id;
     if (event.message && event.message.text) {
       text = event.message.text;
-      onMessage(text, function(err, response){
+      onMessage(text, 0, function(err, response){
         console.log('Let us reply');
         res.status(200).send(response);
       });
