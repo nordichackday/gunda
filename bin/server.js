@@ -1,5 +1,6 @@
 var express = require('express');
 var bodyParser = require('body-parser');
+var answers = require('./answers')
 
 var app = express();
 app.use(bodyParser.json());
@@ -10,6 +11,10 @@ var port = process.env.PORT || 9090;
 app.get('/policy', function(req, res){
   res.send('This is our privacy policy');
 });
+
+function getRandomInt(min, max) {
+	return Math.floor(Math.random() * (max - min + 1)) + min;
+}
 
 app.get('/fb', function(req, res){
   console.log('/fb', req.headers, req.body, req.query);
@@ -55,7 +60,7 @@ app.post('/fb', function(req, res){
               id: event.sender.id
             },
             message: {
-              text: 'u suck'
+              text: answers[getRandomInt(0, answers.length)].answer
             }
           }
         }, function(error, resp, body){
