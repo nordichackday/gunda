@@ -83,21 +83,23 @@ function createButtonedReply(){
       payload: {
         template_type: 'generic',
         elements: [
-          title: 'Va tycker du?',
-          subtitle: 'Tycker du at vi svarade bra på frågan?',
-          buttons: [{
-            type: 'postback',
-            title: 'Ja! :)',
-            payload: {
-              ok: 'yes'
-            }
-          }, {
-            type: 'postback',
-            title: 'Neij :(',
-            payload: {
-              ok: 'no'
-            }
-          }]
+          {
+            title: 'Va tycker du?',
+            subtitle: 'Tycker du at vi svarade bra på frågan?',
+            buttons: [{
+              type: 'postback',
+              title: 'Ja! :)',
+              payload: {
+                ok: 'yes'
+              }
+            }, {
+              type: 'postback',
+              title: 'Neij :(',
+              payload: {
+                ok: 'no'
+              }
+            }]
+          }
         ]
       }
     }
