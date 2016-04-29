@@ -89,12 +89,12 @@ function createButtonedReply(){
            "buttons":[
              {
                "type":"web_url",
-               "url":"https://petersapparel.parseapp.com/view_item?item_id=100",
+               "url":"#",
                "title":":)"
              },
              {
                "type":"web_url",
-               "url":"https://petersapparel.parseapp.com/buy_item?item_id=100",
+               "url":"#",
                "title":":("
              }
            ]
