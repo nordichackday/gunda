@@ -32,6 +32,7 @@ app.post('/gunda', function(req, res){
 
 var events, event;
 app.post('/fb', function(req, res){
+  console.log('/fb');
   events = req.body.entry[0].messaging;
   for (var i=0; i < events.length; i++) {
     event = req.body.entry[0].messaging[i];
@@ -40,8 +41,8 @@ app.post('/fb', function(req, res){
     if (event.message && event.message.text) {
       text = event.message.text;
       onMessage(text, function(err, response){
+        console.log('Let us reply');
         res.status(200).send(response);
-
       });
     }
   }
