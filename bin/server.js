@@ -66,14 +66,11 @@ app.post('/fb', function(req, res){
         }, function(error, resp, body){
           console.log(error);
           console.log(body);
-
         });
-        res.status(200).send(response);
       });
-    } else {
-      res.send();
-    }
+    } 
   }
+	res.status(200).send(response);
 });
 
 
