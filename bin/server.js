@@ -12,6 +12,7 @@ app.get('/policy', function(req, res){
 });
 
 app.get('/fb', function(req, res){
+  console.log('/fb', req.query['hub.verify_token']);
   if (req.query['hub.verify_token'] === '5') {
     res.status(200).send(req.query['hub.challenge']);
   }
