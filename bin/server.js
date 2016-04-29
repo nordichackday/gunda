@@ -52,7 +52,7 @@ app.post('/fb', function(req, res){
           json: true,
           body: {
             recipient: {
-              id: event.sender
+              id: event.sender.id
             },
             message: {
               text: 'u suck'
