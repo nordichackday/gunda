@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
         if (xhrStatus.readyState === XMLHttpRequest.DONE && xhrStatus.status === 200) {
           var obj = JSON.parse(xhrStatus.response);
           bubble.innerHTML = obj.title;
-          answer.innerHTML = obj.answer;
+          answer.innerHTML = '<h3>Svar:</h3>' + obj.answer;
         }
       };
       xhr.open('POST', '/gunda');
@@ -34,9 +34,10 @@ document.addEventListener("DOMContentLoaded", function(event) {
   margin-top: 0;
   margin-bottom: 0;
 }
-.bot input {
+ input {
   padding: 10px;
-  width: 400px;
+  width: 100%;
+  font-size: 19px;
 }
 .bubble {
     position: relative;
@@ -91,9 +92,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
 .header {
   background-color: #000;
 }
-nav {
-  border-bottom: 1px solid #E3E3E3;
-}
 </style>
 <div class="header">
 <img src="top.png">
@@ -106,12 +104,12 @@ nav {
     </div>
   </div>
   <div style="width:50%;float:left;">
+    <p></p><input id="message" type="text" name="message" placeholder="Skriv inn din fråga!">
     <div class="bot">
       <div id="SpeachBubble" class="bubble">
         <div>Hur kan jag hjelpa til?</div>
       </div>
       <img src="gunda.png">
-      <br><input id="message" type="text" name="message" placeholder="Skriv inn din fråga!">
     </div>
     <div id="Answer"></div>
   </div>
