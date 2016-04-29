@@ -45,7 +45,7 @@ app.post('/fb', function(req, res){
         console.log('Let us reply');
         request({
           method: 'POST',
-          url: 'https://graph.facebook.com/v2.6/me/messages?access_token=5'),
+          url: 'https://graph.facebook.com/v2.6/me/messages?access_token=5',
           body: {
             recipient: {
               id: event.sender
